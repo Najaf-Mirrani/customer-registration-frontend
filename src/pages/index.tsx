@@ -1,6 +1,9 @@
-import LandingPage from "@/components/landing-page";
+import RegistrationLayout from "@/components/layout/registration-layout";
+import RegistrationForm from "@/components/registration/registration-form";
 
 export default function Home() {
-  return <LandingPage />
+  return (<RegistrationLayout>
+    <RegistrationForm /> 
+  </RegistrationLayout>)
 }
 
