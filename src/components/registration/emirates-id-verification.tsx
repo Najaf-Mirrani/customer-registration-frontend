@@ -324,11 +324,11 @@ export default function EmiratesIdVerification() {
 
       // Check for common Emirates ID back side keywords
       const hasBackSideKeywords =
-        text.toLowerCase().includes("signature") ||
-        text.toLowerCase().includes("expiry") ||
-        text.toLowerCase().includes("date of expiry") ||
-        text.toLowerCase().includes("توقيع") || // Arabic for "signature"
-        text.toLowerCase().includes("تاريخ الانتهاء") // Arabic for "expiry date"
+        text.toLowerCase().includes("card number") ||
+        text.toLowerCase().includes("occupation") ||
+        text.toLowerCase().includes("employer")
+        // text.toLowerCase().includes("توقيع") || // Arabic for "signature"
+        // text.toLowerCase().includes("تاريخ الانتهاء") // Arabic for "expiry date"
 
       if (hasBackSideKeywords) {
         setIsBackValid(true)
