@@ -271,6 +271,9 @@ export default function EmiratesIdVerification() {
 
       // Check for Emirates ID pattern
       const emiratesIDPattern = /784-\d{4}-\d{7}-\d{1}/
+      const idMatch = text.match(emiratesIDPattern)
+      const extractedId = idMatch ? idMatch[0] : null
+      /**  I will start from here tomorrow quite tired now!! */
 
       // Also check for common Emirates ID keywords
       const hasEmiratesKeywords =
