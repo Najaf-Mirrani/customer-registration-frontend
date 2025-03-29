@@ -62,7 +62,7 @@ A modern, secure application for user registration with Emirates ID verification
 
 
 ```shellscript
-git clone https://github.com/yourusername/emirates-id-verification.git
+git clone https://github.com/your-name/customer-registration-frontend.git
 cd customer-registration-frontend
 
 ```
