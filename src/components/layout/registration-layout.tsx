@@ -2,6 +2,7 @@ import type { ReactNode } from "react"
 import Sidebar from "./sidebar"
 import { ThemeProvider } from "next-themes"
 import { Toaster } from "../ui/toaster"
+import { RegistrationProvider } from "@/contexts/registration-context"
 
 interface RegistrationLayoutProps {
   children: ReactNode
@@ -10,6 +11,7 @@ interface RegistrationLayoutProps {
 export default function RegistrationLayout({ children }: RegistrationLayoutProps) {
   return (
     <div className="flex min-h-screen">
+    <RegistrationProvider>
       <Sidebar />
       <main className="flex-1 p-8 md:p-12 lg:p-16 flex items-center justify-center">
         <div className="w-full max-w-md">
@@ -19,6 +21,8 @@ export default function RegistrationLayout({ children }: RegistrationLayoutProps
         </ThemeProvider>
         </div>
       </main>
+      </RegistrationProvider>
     </div>
+
   )
 }

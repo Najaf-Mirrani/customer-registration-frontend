@@ -1,190 +1,3 @@
-// "use client"
-
-// import type React from "react"
-
-// import { useState } from "react"
-// import { useRouter } from "next/navigation"
-// import { Button } from "@/components/ui/button"
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
-// import { Card, CardContent } from "@/components/ui/card"
-// import { Upload, Check, AlertCircle } from "lucide-react"
-// import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-
-// export default function EmiratesIdVerification() {
-//   const router = useRouter()
-//   const [emiratesId, setEmiratesId] = useState("")
-//   const [frontImage, setFrontImage] = useState<File | null>(null)
-//   const [backImage, setBackImage] = useState<File | null>(null)
-//   const [verificationStatus, setVerificationStatus] = useState<"idle" | "verifying" | "success" | "error">("idle")
-
-//   const handleIdChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     setEmiratesId(e.target.value)
-//   }
-
-//   const handleFrontImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     if (e.target.files && e.target.files[0]) {
-//       setFrontImage(e.target.files[0])
-//     }
-//   }
-
-//   const handleBackImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-//     if (e.target.files && e.target.files[0]) {
-//       setBackImage(e.target.files[0])
-//     }
-//   }
-
-//   const handleVerify = (e: React.FormEvent) => {
-//     e.preventDefault()
-//     setVerificationStatus("verifying")
-
-//     // Simulate verification process
-//     setTimeout(() => {
-//       // In a real app, you would verify the Emirates ID here
-//       setVerificationStatus("success")
-//       // Navigate to completion page after successful verification
-//       setTimeout(() => {
-//         router.push("/complete")
-//       }, 1500)
-//     }, 2000)
-//   }
-
-//   return (
-//     <div className="space-y-8">
-//       <div>
-//         <h1 className="text-3xl font-bold mb-2">Verify your Emirates ID</h1>
-//         <p className="text-muted-foreground">Please provide your Emirates ID details for verification</p>
-//       </div>
-
-//       {verificationStatus === "success" && (
-//         <Alert className="bg-green-50 border-green-200">
-//           <Check className="h-4 w-4 text-green-600" />
-//           <AlertTitle className="text-green-800">Verification Successful</AlertTitle>
-//           <AlertDescription className="text-green-700">
-//             Your Emirates ID has been successfully verified. Redirecting to complete your registration...
-//           </AlertDescription>
-//         </Alert>
-//       )}
-
-//       {verificationStatus === "error" && (
-//         <Alert variant="destructive">
-//           <AlertCircle className="h-4 w-4" />
-//           <AlertTitle>Verification Failed</AlertTitle>
-//           <AlertDescription>
-//             We couldn't verify your Emirates ID. Please check your information and try again.
-//           </AlertDescription>
-//         </Alert>
-//       )}
-
-//       <form onSubmit={handleVerify} className="space-y-6">
-//         <div className="space-y-4">
-//           <div className="space-y-2">
-//             <Label htmlFor="emiratesId">Emirates ID Number</Label>
-//             <Input
-//               id="emiratesId"
-//               value={emiratesId}
-//               onChange={handleIdChange}
-//               placeholder="784-XXXX-XXXXXXX-X"
-//               required
-//               disabled={verificationStatus === "verifying" || verificationStatus === "success"}
-//             />
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//             <div className="space-y-2">
-//               <Label htmlFor="frontImage">ID Front Side</Label>
-//               <Card className="border-dashed">
-//                 <CardContent className="p-4 flex flex-col items-center justify-center min-h-[150px]">
-//                   {frontImage ? (
-//                     <div className="text-center">
-//                       <Check className="h-8 w-8 text-green-500 mx-auto mb-2" />
-//                       <p className="text-sm text-muted-foreground">{frontImage.name}</p>
-//                     </div>
-//                   ) : (
-//                     <>
-//                       <Upload className="h-8 w-8 text-muted-foreground mb-2" />
-//                       <p className="text-sm text-muted-foreground">Upload front side of Emirates ID</p>
-//                     </>
-//                   )}
-//                   <Input
-//                     id="frontImage"
-//                     type="file"
-//                     accept="image/*"
-//                     onChange={handleFrontImageChange}
-//                     className="hidden"
-//                     disabled={verificationStatus === "verifying" || verificationStatus === "success"}
-//                   />
-//                   <Button
-//                     type="button"
-//                     variant="outline"
-//                     size="sm"
-//                     className="mt-4"
-//                     onClick={() => document.getElementById("frontImage")?.click()}
-//                     disabled={verificationStatus === "verifying" || verificationStatus === "success"}
-//                   >
-//                     {frontImage ? "Change Image" : "Select Image"}
-//                   </Button>
-//                 </CardContent>
-//               </Card>
-//             </div>
-
-//             <div className="space-y-2">
-//               <Label htmlFor="backImage">ID Back Side</Label>
-//               <Card className="border-dashed">
-//                 <CardContent className="p-4 flex flex-col items-center justify-center min-h-[150px]">
-//                   {backImage ? (
-//                     <div className="text-center">
-//                       <Check className="h-8 w-8 text-green-500 mx-auto mb-2" />
-//                       <p className="text-sm text-muted-foreground">{backImage.name}</p>
-//                     </div>
-//                   ) : (
-//                     <>
-//                       <Upload className="h-8 w-8 text-muted-foreground mb-2" />
-//                       <p className="text-sm text-muted-foreground">Upload back side of Emirates ID</p>
-//                     </>
-//                   )}
-//                   <Input
-//                     id="backImage"
-//                     type="file"
-//                     accept="image/*"
-//                     onChange={handleBackImageChange}
-//                     className="hidden"
-//                     disabled={verificationStatus === "verifying" || verificationStatus === "success"}
-//                   />
-//                   <Button
-//                     type="button"
-//                     variant="outline"
-//                     size="sm"
-//                     className="mt-4"
-//                     onClick={() => document.getElementById("backImage")?.click()}
-//                     disabled={verificationStatus === "verifying" || verificationStatus === "success"}
-//                   >
-//                     {backImage ? "Change Image" : "Select Image"}
-//                   </Button>
-//                 </CardContent>
-//               </Card>
-//             </div>
-//           </div>
-//         </div>
-
-//         <Button
-//           type="submit"
-//           className="w-full bg-[#0e0e2c] hover:bg-[#1a1a4b] text-white"
-//           disabled={
-//             !emiratesId ||
-//             !frontImage ||
-//             !backImage ||
-//             verificationStatus === "verifying" ||
-//             verificationStatus === "success"
-//           }
-//         >
-//           {verificationStatus === "verifying" ? "Verifying..." : "Verify Emirates ID"}
-//         </Button>
-//       </form>
-//     </div>
-//   )
-// }
-
 "use client"
 
 import type React from "react"
@@ -199,11 +12,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Upload, Check, AlertCircle, X, Loader2 } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { useToast } from "@/hooks/use-toast"
+import { useRegistration } from "@/contexts/registration-context"
+import axios from 'axios';
 
 export default function EmiratesIdVerification() {
   const router = useRouter()
   const { toast } = useToast()
-  const [emiratesId, setEmiratesId] = useState("")
+  const [emiratesId, setEmiratesId] = useState<string | null>("")
   const [frontImage, setFrontImage] = useState<string | null>(null)
   const [backImage, setBackImage] = useState<string | null>(null)
   const [extractedData, setExtractedData] = useState({ front: "", back: "" })
@@ -214,6 +29,7 @@ export default function EmiratesIdVerification() {
   const [isProcessingFront, setIsProcessingFront] = useState(false)
   const [isProcessingBack, setIsProcessingBack] = useState(false)
   const [verificationStatus, setVerificationStatus] = useState<"idle" | "verifying" | "success" | "error">("idle")
+  const { formData, setFormData ,setRegistrationStep } = useRegistration()
 
   const onDropFront = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
@@ -273,7 +89,8 @@ export default function EmiratesIdVerification() {
       const emiratesIDPattern = /784-\d{4}-\d{7}-\d{1}/
       const idMatch = text.match(emiratesIDPattern)
       const extractedId = idMatch ? idMatch[0] : null
-      /**  I will start from here tomorrow quite tired now!! */
+      setFormData({...formData, emiratesId: extractedId as string} )
+      setEmiratesId(extractedId)
 
       // Also check for common Emirates ID keywords
       const hasEmiratesKeywords =
@@ -403,23 +220,43 @@ export default function EmiratesIdVerification() {
 
     setVerificationStatus("verifying")
 
-    // Simulate verification process
-    setTimeout(() => {
-      setVerificationStatus("success")
-      // Navigate to completion page after successful verification
-      setTimeout(() => {
-        router.push("/complete")
-      }, 2000)
+   
+    setTimeout(async() => {
+      // setVerificationStatus("success")
+      
+        // router.push("/complete")
+        const tunnedData = {
+          firstname: formData.firstName,
+          lastname: formData.lastName,
+          email: formData.email,
+          emiratesId: formData.emiratesId,
+          mobile: formData.mobileNumber,
+        };
+        
+        try {
+          const response = await axios.post('http://localhost:5000/api/users', tunnedData, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          setRegistrationStep(2)
+          setVerificationStatus("success")
+          console.log('User created:', response.data);
+        } catch (error) {
+          setVerificationStatus("idle")
+          console.error('Error creating the user',);
+        }
     }, 1500)
   }
 
   return (
     <div className="space-y-8">
+      
       <div>
         <h1 className="text-3xl mb-2" style={{ fontWeight: 700 }}>
           Verify your Emirates ID
         </h1>
-        <p className="text-muted-foreground">Please provide your Emirates ID details for verification</p>
+        <p className="text-muted-foreground">Hello {formData.firstName}, please provide your Emirates ID details for verification</p>
       </div>
 
       {verificationStatus === "success" && (
@@ -437,7 +274,7 @@ export default function EmiratesIdVerification() {
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>Verification Failed</AlertTitle>
           <AlertDescription>
-            We couldn't verify your Emirates ID. Please check your information and try again with a clearer image.
+            We couldn't verify your Emirates ID. Please check your information and try again with a clearer and not rotated image.
           </AlertDescription>
         </Alert>
       )}
@@ -448,11 +285,11 @@ export default function EmiratesIdVerification() {
             <Label htmlFor="emiratesId">Emirates ID Number</Label>
             <Input
               id="emiratesId"
-              value={emiratesId}
+              value={emiratesId as string}
               onChange={handleIdChange}
-              placeholder="784-XXXX-XXXXXXX-X"
+              placeholder="we will get your emirates Id number"
               required
-              disabled={verificationStatus === "verifying" || verificationStatus === "success"}
+              disabled={true} //{verificationStatus === "verifying" || verificationStatus === "success"}
             />
           </div>
 
@@ -600,23 +437,7 @@ export default function EmiratesIdVerification() {
             </div>
           </div>
 
-          {extractedData.front && (
-            <div className="space-y-2">
-              <Label>Extracted Text (Front)</Label>
-              <div className="p-3 bg-muted rounded-md text-xs max-h-[100px] overflow-y-auto">
-                <pre className="whitespace-pre-wrap">{extractedData.front}</pre>
-              </div>
-            </div>
-          )}
-
-          {extractedData.back && (
-            <div className="space-y-2">
-              <Label>Extracted Text (Back)</Label>
-              <div className="p-3 bg-muted rounded-md text-xs max-h-[100px] overflow-y-auto">
-                <pre className="whitespace-pre-wrap">{extractedData.back}</pre>
-              </div>
-            </div>
-          )}
+        
         </div>
 
         <Button
