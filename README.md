@@ -141,12 +141,10 @@ Navigate to [http://localhost:3000](http://localhost:3000) to see the applicatio
 
 ```plaintext
 customer-registration-frontend/
-├── app/                      # Next.js App Router
-│   ├── complete/            # Registration completion page
-│   ├── verify-id/           # ID verification page
-│   ├── globals.css          # Global styles
+├── pages/                   # Next.js Pages
+│   ├── _app.tsx              
 │   ├── layout.tsx           # Root layout
-│   └── page.tsx             # Home/registration page
+│   └── index.tsx            # Home/registration page
 ├── components/              # React components
 │   ├── layout/              # Layout components
 │   │   ├── registration-layout.tsx
@@ -176,11 +174,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgements
 
