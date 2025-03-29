@@ -1,4 +1,4 @@
-Thought for 3 seconds### Emirates ID Verification System
+Thought for 3 seconds### Customer Registration & Emirates ID Verification System
 
 ## 🚀 Overview
 
@@ -63,7 +63,8 @@ A modern, secure application for user registration with Emirates ID verification
 
 ```shellscript
 git clone https://github.com/yourusername/emirates-id-verification.git
-cd emirates-id-verification
+cd customer-registration-frontend
+
 ```
 
 2. **Install dependencies**
@@ -139,7 +140,7 @@ Navigate to [http://localhost:3000](http://localhost:3000) to see the applicatio
 ## 📁 Project Structure
 
 ```plaintext
-emirates-id-verification/
+customer-registration-frontend/
 ├── app/                      # Next.js App Router
 │   ├── complete/            # Registration completion page
 │   ├── verify-id/           # ID verification page
