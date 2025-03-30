@@ -2,7 +2,7 @@ Thought for 3 seconds### Customer Registration & Emirates ID Verification System
 
 ## 🚀 Overview
 
-A modern, secure application for user registration with Emirates ID verification. This system provides a seamless registration experience with advanced OCR-based ID verification, ensuring both the front and back sides of Emirates IDs are validated before completing the registration process.
+A modern, secure application for user registration with Emirates ID verification. This system provides a seamless registration experience with advanced OCR-based ID verification, ensuring both the front and back sides of Emirates IDs are validated before completing the registration process. The backend repo for of this app is https://github.com/Najaf-Mirrani/customer-registration-backend.git. 
 
 ## ✨ Features
 
