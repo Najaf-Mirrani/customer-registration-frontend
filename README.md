@@ -1,8 +1,5 @@
 Thought for 3 seconds### Customer Registration & Emirates ID Verification System
 
-<img src="src/assets/cashew1.png" alt="Alt text" width="400" height="200">
-<img src="src/assets/cashew2.png" alt="Alt text" width="400" height="200">
-<img src="src/assets/cashew3.png" alt="Alt text" width="400" height="200">
 ## 🚀 Overview
 
 A modern, secure application for user registration with Emirates ID verification. This system provides a seamless registration experience with advanced OCR-based ID verification, ensuring both the front and back sides of Emirates IDs are validated before completing the registration process.
@@ -46,6 +43,12 @@ A modern, secure application for user registration with Emirates ID verification
 
 
 ## 📸 Screenshots
+- User information form with validations
+<img src="src/assets/cashew1.png" alt="Alt text" width="400" height="200">
+- Emirates Id verification
+<img src="src/assets/cashew2.png" alt="Alt text" width="400" height="200">
+- Registration Complete Screen
+<img src="src/assets/cashew3.png" alt="Alt text" width="400" height="200">
 
 ## 🛠️ Technologies
 
