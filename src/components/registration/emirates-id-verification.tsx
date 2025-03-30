@@ -75,7 +75,6 @@ export default function EmiratesIdVerification() {
 
   const validateEmiratesIDFront = async () => {
     if (!frontImage) return
-
     setFrontError("")
     setIsProcessingFront(true)
 
@@ -84,7 +83,6 @@ export default function EmiratesIdVerification() {
         data: { text },
       } = await Tesseract.recognize(frontImage, "eng+ara")
       setExtractedData((prev) => ({ ...prev, front: text }))
-
       // Check for Emirates ID pattern
       const emiratesIDPattern = /784-\d{4}-\d{7}-\d{1}/
       const idMatch = text.match(emiratesIDPattern)
@@ -245,6 +243,11 @@ export default function EmiratesIdVerification() {
         } catch (error) {
           setVerificationStatus("idle")
           console.error('Error creating the user',);
+          toast({
+            title: "Request failed",
+            description: "There is something wrong, please try again later",
+            variant: "default",
+          })
         }
     }, 1500)
   }

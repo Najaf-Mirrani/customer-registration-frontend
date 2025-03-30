@@ -47,7 +47,7 @@ export default function WelcomeScreen() {
           </div>
           <div className="pt-4">
               <Link href="/">
-                <Button className="w-full bg-[#0e0e2c] hover:bg-[#1a1a4b] text-white">Go to Dashboard</Button>
+                <Button className="w-full bg-[#0e0e2c] hover:bg-[#1a1a4b] text-white">Go to Dashboard( coming soon )</Button>
               </Link>
             </div>
         </CardContent>
